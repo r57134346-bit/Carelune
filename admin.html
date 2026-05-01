@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CareLune Admin</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="admin.css">
+  </head>
+  <body class="admin-page">
+    <header class="admin-header">
+      <a class="brand" href="index.html" aria-label="CareLune home">
+        <img class="brand-logo" src="assets/carelune-logo.png" alt="" aria-hidden="true">
+        <span>
+          CareLune
+          <small>Moonlit care</small>
+        </span>
+      </a>
+      <a class="secondary-button" href="index.html">View website</a>
+    </header>
+
+    <main class="admin-shell">
+      <section class="admin-intro" aria-labelledby="admin-title">
+        <p class="eyebrow">Admin panel</p>
+        <h1 id="admin-title">Manage product posts</h1>
+        <p>Add, edit, remove, and export products for the public CareLune website.</p>
+      </section>
+
+      <section class="admin-layout">
+        <form class="admin-form" id="adminForm">
+          <input type="hidden" name="editIndex" value="">
+
+          <label>
+            Product title
+            <input name="title" required maxlength="80" placeholder="Hydrating gel moisturizer">
+          </label>
+          <label>
+            Category
+            <select name="category" required>
+              <option>Skincare</option>
+              <option>Bodycare</option>
+              <option>Haircare</option>
+            </select>
+          </label>
+          <label>
+            Product link
+            <input name="link" type="url" required placeholder="https://www.amazon.com/...">
+          </label>
+          <label>
+            Image URL
+            <input name="image" type="url" placeholder="https://m.media-amazon.com/images/...">
+          </label>
+          <label>
+            Short review
+            <textarea name="summary" required maxlength="220" rows="5" placeholder="Lightweight daily moisturizer for soft, calm-looking skin without a heavy finish."></textarea>
+          </label>
+          <label>
+            Best for
+            <input name="bestFor" maxlength="70" placeholder="Dry or combination skin">
+          </label>
+
+          <div class="admin-actions">
+            <button class="secondary-button" type="button" id="resetForm">New product</button>
+            <button class="primary-button" type="submit">Save product</button>
+          </div>
+        </form>
+
+        <section class="admin-products" aria-labelledby="admin-products-title">
+          <div class="admin-panel-heading">
+            <div>
+              <p class="eyebrow">Products</p>
+              <h2 id="admin-products-title">Current list</h2>
+            </div>
+            <button class="primary-button" type="button" id="exportProducts">Export products.js</button>
+          </div>
+          <div class="admin-list" id="adminList"></div>
+        </section>
+      </section>
+    </main>
+
+    <script src="products.js"></script>
+    <script src="admin.js"></script>
+  </body>
+</html>
